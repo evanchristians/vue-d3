@@ -51,8 +51,8 @@ watchEffect(() => {
           opacity: 1,
           scale: 1,
           rotate: angle,
-          duration: 1.25,
-          ease: "back.out(1.1)",
+          duration: .75 + Math.random() * .5,
+          ease: "back.out(.75)",
         }
       )
       .add(waveTimeline);
@@ -70,3 +70,4 @@ const { angle } = defineProps({
   filter: drop-shadow(0 -2px 4px rgba(0, 0, 0, .1));
 }
 </style>
+ 
