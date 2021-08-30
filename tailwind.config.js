@@ -9,6 +9,16 @@ module.exports = {
       maxWidth: {
         content: "fit-content",
       },
+      minHeight: {
+        6: "1.5rem",
+      },
+      colors: {
+        gray: {
+          900: "#191924",
+          800: "#1C1C27",
+          700: "#29293d",
+        },
+      },
     },
   },
   variants: {

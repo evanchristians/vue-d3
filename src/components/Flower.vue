@@ -9,7 +9,7 @@
     :ref="(el) => (flower = el)"
   >
     <svg
-      v-if="wasInView"
+      v-if="inView"
       x="0px"
       y="0px"
       :width="size * 2"
@@ -38,28 +38,24 @@ import { watchEffect } from "vue";
 import Petal from "./Petal.vue";
 
 const size = 140;
-const colors = d3.scaleOrdinal(d3.schemeSet1);
 const { petalSize, petalCount } = flowerConfig(dataset, data, size);
 const flower = ref(null);
-const wasInView = ref(false);
+const inView = ref(false);
 
 const petals = _.times(petalCount, (i) => ({
   angle: getAngle(i, petalCount),
-  fill: colors(i),
+  fill: d3.interpolateViridis(Math.random() * (1 - .25) + .25),
 }));
 
 const callback = (entries, observer) => {
   entries.forEach((entry) => {
-    console.log(entry);
-    if (entry.isIntersecting) {
-      wasInView.value = true;
-    }
+      inView.value = entry.isIntersecting;
   });
 };
 
 const observer = new IntersectionObserver(callback, {
   root: null,
-  rootMargin: '0px',
+  rootMargin: "0px",
   threshold: 0,
 });
 

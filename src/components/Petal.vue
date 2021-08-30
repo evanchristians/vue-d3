@@ -1,5 +1,6 @@
 <template>
   <path
+    class="petal"
     :d="path"
     :fill="fill"
     :ref="
@@ -63,3 +64,9 @@ const { angle } = defineProps({
   fill: String,
 });
 </script>
+
+<style lang="scss" scoped>
+.petal {
+  filter: drop-shadow(0 -2px 4px rgba(0, 0, 0, .1));
+}
+</style>

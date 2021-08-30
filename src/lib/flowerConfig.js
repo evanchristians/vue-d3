@@ -9,7 +9,7 @@ export const flowerConfig = (dataset, data, size) => {
   const petalSizeScale = d3
     .scaleLinear()
     .domain(votesRange)
-    .range([(size / 50) * 0.25, (size / 50) * 0.7]);
+    .range([(size / 50) * 0.25, (size / 50) * 0.6]);
 
   const petalCountScale = d3
     .scaleQuantize()
