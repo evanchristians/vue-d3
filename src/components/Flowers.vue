@@ -1,5 +1,8 @@
 <template>
   <div class="flex gap-10 flex-wrap justify-center">
+    <div v-if="filteredData.length < 1" class="my-20">
+      <p>No results</p>
+    </div>
     <div
       v-for="d in filteredData"
       :key="d.imdbID"
@@ -16,7 +19,6 @@
       <div className="max-w-content w-full">
         <p className="mx-auto mt-2">{{ d.Title }}</p>
         <p className="font-light text-sm">{{ d.Director }}</p>
-        <p>{{ search }}</p>
       </div>
       <Flower :data="d" :dataset="data" />
       <div className="max-w-content w-full flex flex-col">

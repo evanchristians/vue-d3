@@ -37,7 +37,7 @@ import { getAngle } from "../lib/getAngle";
 import { watchEffect } from "vue";
 import Petal from "./Petal.vue";
 
-const size = 100;
+const size = 140;
 const colors = d3.scaleOrdinal(d3.schemeSet1);
 const { petalSize, petalCount } = flowerConfig(dataset, data, size);
 const flower = ref(null);
@@ -56,7 +56,7 @@ const callback = (entries, observer) => {
 
 const observer = new IntersectionObserver(callback, {
   root: null,
-  threshold: 0.5,
+  threshold: 0,
 });
 
 watchEffect(() => {
