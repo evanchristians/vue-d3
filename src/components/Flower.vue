@@ -9,7 +9,7 @@
     :ref="(el) => (flower = el)"
   >
     <svg
-      v-if="inView"
+      v-if="wasInView"
       x="0px"
       y="0px"
       :width="size * 2"
@@ -41,7 +41,7 @@ const size = 140;
 const colors = d3.scaleOrdinal(d3.schemeSet1);
 const { petalSize, petalCount } = flowerConfig(dataset, data, size);
 const flower = ref(null);
-const inView = ref(false);
+const wasInView = ref(false);
 
 const petals = _.times(petalCount, (i) => ({
   angle: getAngle(i, petalCount),
@@ -50,12 +50,16 @@ const petals = _.times(petalCount, (i) => ({
 
 const callback = (entries, observer) => {
   entries.forEach((entry) => {
-    inView.value = entry.isIntersecting;
+    console.log(entry);
+    if (entry.isIntersecting) {
+      wasInView.value = true;
+    }
   });
 };
 
 const observer = new IntersectionObserver(callback, {
   root: null,
+  rootMargin: '0px',
   threshold: 0,
 });
 

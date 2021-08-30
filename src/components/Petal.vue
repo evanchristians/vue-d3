@@ -50,7 +50,7 @@ watchEffect(() => {
           opacity: 1,
           scale: 1,
           rotate: angle,
-          duration: 1.5,
+          duration: 1.25,
           ease: "back.out(1.1)",
         }
       )

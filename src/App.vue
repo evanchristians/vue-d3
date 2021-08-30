@@ -9,13 +9,31 @@
       mx-auto
     "
   >
+    <h1 class="mb-10 text-4xl font-light">
+      <span class="text-yellow-500">D3</span> &
+      <span class="text-green-500">Vue</span> Data Visualization Demo
+    </h1>
     <input
-      class="mb-20 bg-gray-100 text-xl py-2 px-4"
+      class="
+        mb-10
+        bg-gray-50
+        py-2
+        px-4
+        font-light
+        max-w-prose
+        w-full
+        text-lg
+        focus:outline-none
+        focus:bg-gray-100
+      "
       type="text"
+      placeholder="search"
       v-model="search"
     />
-    <p class="mb-5" v-if="search.length > 0">
-      Showing movies containing "{{ search }}" in the title
+    <p class="mb-5 h-10">
+      <span v-if="search.length > 0">
+        Showing movies containing "{{ search }}" in the title
+      </span>
     </p>
     <suspense>
       <template #default>
