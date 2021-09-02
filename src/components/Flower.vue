@@ -22,6 +22,8 @@
           :key="i"
           :fill="d.fill"
           :angle="d.angle"
+          :duration="d.duration"
+          :idleDuration="d.idleDuration"
         />
       </g>
     </svg>
@@ -44,19 +46,21 @@ const inView = ref(false);
 
 const petals = _.times(petalCount, (i) => ({
   angle: getAngle(i, petalCount),
-  fill: d3.interpolateViridis(Math.random() * (1 - .25) + .25),
+  fill: d3.interpolateViridis(Math.random() * (1 - 0.25) + 0.25),
+  idleDuration: Math.random() * (1.5 - 0.5) + 0.5,
+  duration: 0.75 + Math.random() * 0.5,
 }));
 
 const callback = (entries, observer) => {
   entries.forEach((entry) => {
-      inView.value = entry.isIntersecting;
+    inView.value = entry.isIntersecting;
   });
 };
 
 const observer = new IntersectionObserver(callback, {
   root: null,
   rootMargin: "0px",
-  threshold: 0,
+  threshold: 0.25,
 });
 
 watchEffect(() => {

@@ -32,7 +32,7 @@ watchEffect(() => {
       },
       {
         rotate: angle + Math.floor(Math.random() * 2 - 1) * 7.5,
-        duration: Math.random() * (1.5 - 0.5) + 0.5,
+        duration: idleDuration,
         ease: "power1.inOut",
       }
     );
@@ -51,7 +51,7 @@ watchEffect(() => {
           opacity: 1,
           scale: 1,
           rotate: angle,
-          duration: .75 + Math.random() * .5,
+          duration: duration,
           ease: "back.out(.75)",
         }
       )
@@ -59,15 +59,10 @@ watchEffect(() => {
   }
 });
 
-const { angle } = defineProps({
+const { angle, duration, idleDuration } = defineProps({
   angle: Number,
+  duration: Number,
+  idleDuration: Number,
   fill: String,
 });
 </script>
-
-<style lang="scss" scoped>
-.petal {
-  filter: drop-shadow(0 -2px 4px rgba(0, 0, 0, .1));
-}
-</style>
- 
