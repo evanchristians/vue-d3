@@ -1,21 +1,9 @@
 <template>
-  <div class="flex gap-10 flex-wrap justify-center">
+  <div class="flex flex-wrap gap-10 justify-center w-full">
     <div v-if="filteredData.length < 1" class="my-20">
       <p>No results</p>
     </div>
-    <div
-      v-for="d in filteredData"
-      :key="d.imdbID"
-      class="
-        flex flex-col flex-grow
-        justify-between
-        items-center
-        text-center
-        p-5
-        max-w-full
-        bg-gray-50
-      "
-    >
+    <div v-for="d in filteredData" :key="d.imdbID" class="flower-container">
       <div className="max-w-content w-full">
         <p className="mx-auto mt-2">{{ d.Title }}</p>
         <p className="font-light text-sm">{{ d.Director }}</p>
@@ -49,6 +37,8 @@ const data = await d3
   )
   .then((res) => _.values(res));
 
+console.log(data[0]);
+
 filteredData.value = data;
 
 watchEffect(() => {
@@ -61,3 +51,9 @@ watchEffect(() => {
   }
 });
 </script>
+
+<style lang="scss" scoped>
+.flower-container {
+  @apply flex flex-col justify-between items-center text-center p-5 max-w-full bg-gray-100 rounded-lg;
+}
+</style>

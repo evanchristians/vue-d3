@@ -1,5 +1,5 @@
 <template>
-  <main class="min-h-screen py-10 px-5 ">
+  <main class="min-h-screen py-10 px-5">
     <div class="max-w-screen-2xl mx-auto flex flex-col items-center">
       <h1 class="mb-10 text-4xl font-light">
         <span class="text-yellow-300">D3</span> &
@@ -8,22 +8,25 @@
       <input
         class="
           mb-5
-          bg-gray-50
+          bg-gray-100
           py-3
-          px-5
-          font-light
+          px-7
           max-w-prose
           w-full
           text-lg
-          focus:outline-none focus:bg-gray-100
+          focus:outline-none
+          rounded-lg
         "
         type="text"
-        placeholder="search"
+        placeholder="Search"
         v-model="search"
       />
       <p class="mb-5 min-h-6 font-light text-sm">
         <span v-if="search.length > 0">
-          Showing movies containing "<span class="font-normal">{{ search }}</span>" in the title
+          Showing movies containing "<span class="font-normal">{{
+            search
+          }}</span
+          >" in the title
         </span>
       </p>
       <suspense>

@@ -1,10 +1,5 @@
-import { createApp, defineAsyncComponent } from "vue";
-import App from "./App.vue";
 import "tailwindcss/tailwind.css";
-import "./styles/main.scss";
+import { createApp } from "vue";
+import App from "./App.vue";
 
-const app = createApp(
-  defineAsyncComponent(() => import("./App.vue"))
-);
-
-app.mount("#app");
+createApp(App).mount("#app");
