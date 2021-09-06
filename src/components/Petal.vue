@@ -31,7 +31,7 @@ watchEffect(() => {
         rotate: angle,
       },
       {
-        rotate: angle + Math.floor(Math.random() * 2 - 1) * 7.5,
+        rotate: angleWithVariance,
         duration: idleDuration,
         ease: "power1.inOut",
       }
@@ -59,8 +59,9 @@ watchEffect(() => {
   }
 });
 
-const { angle, duration, idleDuration } = defineProps({
+const { angle, angleWithVariance, duration, idleDuration } = defineProps({
   angle: Number,
+  angleWithVariance: Number,
   duration: Number,
   idleDuration: Number,
   fill: String,
